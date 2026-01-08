@@ -7,23 +7,35 @@ The app is built using Python (Kivy) for the frontend and Firebase Firestore as 
 # Key Features
 
 Interactive map using OpenStreetMap
+
 GPS-based “Where Am I?” functionality
+
 Display of latitude and longitude
+
 Accessibility location markers (ramps, lifts, washrooms, etc.)
+
 Cloud backend using Firebase Firestore
+
 Mobile-first design focused on accessibility
 
 # Tech Stack
 
 Frontend: Python, Kivy, KivyMD
+
 Mas: OpenStreetMap (MapView)
+
 Device Services: Plyer (GPS)
+
 Backend: Firebase Firestore
+
 Platform: Mobile Application (Android)
 
 # Team Members & Roles
 
 Mahi & Vishakha – Frontend Development (Kivy UI & Map Integration)
+
 Pooja – Backend Integration (Firebase Firestore)
+
 Radhika – System Design, Documentation & Testing
+
 Vishakha – Team Lead, UI/UX
