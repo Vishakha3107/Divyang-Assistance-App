@@ -1,0 +1,15 @@
+# Python
+venv/
+__pycache__/
+*.pyc
+
+# Kivy
+*.log
+*.spec
+
+# Firebase
+serviceAccountKey.json
+
+# OS
+.DS_Store
+Thumbs.db
