@@ -1,0 +1,76 @@
+#:kivy 2.3.0
+<UserSignupScreen>:
+    name: 'user_signup'
+    BoxLayout:
+        orientation: 'vertical'
+        padding: dp(30)
+        spacing: dp(20)
+        canvas.before:
+            Color:
+                rgba: 0.874, 0.717, 0.956, 1  # DFB7F4 background
+            Rectangle:
+                pos: self.pos
+                size: self.size
+
+        Label:
+            text: "WELCOME TO DIVYANG ASSISTANCE"
+            font_size: '24sp'
+            bold: True
+            color: 0, 0, 0, 1
+            size_hint_y: None
+            height: dp(40)
+
+        Label:
+            text: "Sign-up"
+            font_size: '20sp'
+            color: 0, 0, 0, 0.85
+            size_hint_y: None
+            height: dp(30)
+
+        TextInput:
+            id: full_name
+            hint_text: "Full Name"
+            multiline: False
+            size_hint_y: None
+            height: dp(48)
+            background_color: 1, 1, 1, 1
+            foreground_color: 0, 0, 0, 1
+
+        TextInput:
+            id: mobile
+            hint_text: "Mobile Number"
+            input_filter: 'int'
+            multiline: False
+            size_hint_y: None
+            height: dp(48)
+            background_color: 1, 1, 1, 1
+            foreground_color: 0, 0, 0, 1
+
+        TextInput:
+            id: age
+            hint_text: "Age"
+            input_filter: 'int'
+            multiline: False
+            size_hint_y: None
+            height: dp(48)
+            background_color: 1, 1, 1, 1
+            foreground_color: 0, 0, 0, 1
+
+        TextInput:
+            id: disability
+            hint_text: "Disability Type"
+            multiline: False
+            size_hint_y: None
+            height: dp(48)
+            background_color: 1, 1, 1, 1
+            foreground_color: 0, 0, 0, 1
+
+        Button:
+            text: "Get Started ➜"
+            font_size: '18sp'
+            background_color: 0.82, 0.294, 0.494, 1  # D14B7E
+            color: 1, 1, 1, 1
+            size_hint: None, None
+            size: dp(200), dp(50)
+            pos_hint: {'center_x': 0.5}
+            on_release: root.submit_form()

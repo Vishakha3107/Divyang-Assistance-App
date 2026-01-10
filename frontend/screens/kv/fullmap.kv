@@ -1,0 +1,42 @@
+#:kivy 2.3.0
+<FullMapScreen>:
+    name: 'fullmap'
+    BoxLayout:
+        orientation: 'vertical'
+        padding: dp(20)
+        spacing: dp(20)
+        canvas.before:
+            Color:
+                rgba: 0.737, 0.854, 1, 1  # BCDAFF background
+            Rectangle:
+                pos: self.pos
+                size: self.size
+
+        BoxLayout:
+            orientation: 'horizontal'
+            size_hint_y: None
+            height: dp(40)
+            spacing: dp(10)
+
+            Button:
+                text: "←"
+                font_size: '20sp'
+                background_color: 0.384, 0.58, 0.816, 1
+                color: 1, 1, 1, 1
+                size_hint_x: None
+                width: dp(50)
+                on_release: app.root.current = 'home'
+
+            Label:
+                text: "Where you want to go?"
+                font_size: '20sp'
+                color: 0, 0, 0, 1
+
+        Button:
+            text: "Full Map View (Placeholder)"
+            font_size: '20sp'
+            background_color: 0.384, 0.58, 0.816, 1
+            color: 1, 1, 1, 1
+            size_hint: None, None
+            size: dp(300), dp(300)
+            pos_hint: {'center_x': 0.5}
