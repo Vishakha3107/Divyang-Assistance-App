@@ -1,0 +1,59 @@
+#:kivy 2.3.0
+
+<AdminInput@TextInput>:
+    multiline: False
+    size_hint_y: None
+    height: dp(45)
+    background_normal: ''
+    background_color: 0.9, 0.9, 0.9, 1
+    foreground_color: 0, 0, 0, 1
+    padding: [10, 10]
+
+<AdminSignupScreen>:
+    name: "admin_signup"
+    BoxLayout:
+        orientation: 'vertical'
+        padding: dp(20)
+        spacing: dp(15)
+        canvas.before:
+            Color:
+                rgba: 0.95, 0.92, 0.97, 1
+            Rectangle:
+                pos: self.pos
+                size: self.size
+
+        Label:
+            text: "ADMIN SIGNUP"
+            font_size: '24sp'
+            bold: True
+            color: 0, 0, 0, 1
+            size_hint_y: None
+            height: dp(50)
+
+        AdminInput:
+            id: admin_name  # <--- MUST MATCH PYTHON
+            hint_text: "Full Name"
+
+        AdminInput:
+            id: admin_mobile # <--- MUST MATCH PYTHON
+            hint_text: "Mobile Number"
+            input_filter: 'int'
+
+        AdminInput:
+            id: org_name    # <--- MUST MATCH PYTHON
+            hint_text: "Organization Name"
+
+        AdminInput:
+            id: org_address
+            hint_text: "Organization Address"
+
+        AdminInput:
+            id: service
+            hint_text: "Service Available"
+
+        Button:
+            text: "Register"
+            size_hint_y: None
+            height: dp(50)
+            background_color: 0.5, 0, 0.5, 1
+            on_release: root.submit_form()
