@@ -1,0 +1,37 @@
+#:kivy 2.3.0
+#:import MapView kivy_garden.mapview.MapView
+
+<MapScreen>:
+
+    FloatLayout:
+       
+        MapView:
+            zoom: 15
+            lat: 19.9975
+            lon: 73.7898
+            size_hint: 1, 1
+            map_source: "osm"
+            double_tap_zoom: True
+
+        Label:
+            text: "Where you want to go?"
+            size_hint: None, None
+            size: dp(280), dp(50)
+            pos_hint: {"center_x": 0.5, "top": 0.97}
+            color: 0, 0, 0, 1
+            canvas.before:
+                Color:
+                    rgba: 0.45, 0.65, 0.85, 1
+                RoundedRectangle:
+                    pos: self.pos
+                    size: self.size
+                    radius: [25]
+
+        Button:
+            text: "<"
+            size_hint: None, None
+            size: dp(45), dp(45)
+            color: 0, 0, 0, 1
+            background_color: 0.45, 0.65, 0.85, 1   
+            pos_hint: {"x": 0.03, "top": 0.97}
+            on_release: app.root.current = "map_home"
