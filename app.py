@@ -10,20 +10,17 @@ from kivy.core.window import Window
 Window.size = (360, 640)
 
 
-from frontend.screens.py.google_map import MapScreen
-from frontend.screens.py.google_map import MapScreen
-
-
 # Load KV files
 Builder.load_file("frontend/screens/kv/role_select.kv")
 Builder.load_file("frontend/screens/kv/user_signup.kv")
 Builder.load_file("frontend/screens/kv/map_home.kv")
 Builder.load_file("frontend/screens/kv/google_map.kv")
 Builder.load_file("frontend/screens/kv/admin_signup.kv")
+Builder.load_file("frontend/screens/kv/admin_home.kv")  
 
 
 class RoleSelectScreen(Screen):
-       def show_admin_info(self):
+    def show_admin_info(self):
         # Navigate to the new Admin Signup page
         self.manager.current = "admin_signup"
 
@@ -92,17 +89,21 @@ class MapScreen(Screen):
 class AdminHomeScreen(Screen):
     pass
 
+
 class DivyangApp(App):
     def build(self):
-        sm = ScreenManager()
+        sm = ScreenManager(transition=SlideTransition())
+
         sm.add_widget(RoleSelectScreen(name="role_select"))
         sm.add_widget(UserSignupScreen(name="user_signup"))
         sm.add_widget(MapHomeScreen(name="map_home"))
         sm.add_widget(MapScreen(name="google_map"))
-        sm.add_widget(MapScreen(name="map_screen"))
         sm.add_widget(AdminSignupScreen(name="admin_signup"))
+        sm.add_widget(AdminHomeScreen(name="admin_home"))
+
         sm.current = "role_select"
         return sm
+
 
 
 if __name__ == "__main__":

@@ -1,0 +1,104 @@
+#:kivy 2.3.0
+
+<AdminScreen>:
+    FloatLayout:
+        canvas.before:
+            Color:
+                rgba: 0.9, 0.85, 0.95, 1  # Light purple background
+            Rectangle:
+                pos: self.pos
+                size: self.size
+
+        # ---------------- TITLE ----------------
+        Label:
+            text: "Admin"
+            font_size: '28sp'
+            bold: True
+            color: 0, 0, 0, 1
+            size_hint: None, None
+            size: dp(200), dp(50)
+            pos_hint: {"center_x": 0.5, "top": 0.95}
+
+        # ---------------- SERVICE BUTTONS ----------------
+        BoxLayout:
+            orientation: 'horizontal'
+            size_hint: None, None
+            size: dp(320), dp(50)
+            spacing: dp(20)
+            pos_hint: {"center_x": 0.5, "top": 0.85}
+
+            Button:
+                text: "Service Requested"
+                background_color: 0.6, 0.4, 0.8, 1
+                color: 1, 1, 1, 1
+                font_size: '16sp'
+
+            Button:
+                text: "User's Location"
+                background_color: 0.6, 0.4, 0.8, 1
+                color: 1, 1, 1, 1
+                font_size: '16sp'
+
+        # ---------------- ACCEPT / DECLINE ----------------
+        BoxLayout:
+            orientation: 'horizontal'
+            size_hint: None, None
+            size: dp(250), dp(50)
+            spacing: dp(20)
+            pos_hint: {"center_x": 0.5, "center_y": 0.5}
+
+            Button:
+                text: "Accept"
+                background_color: 0.3, 0.8, 0.4, 1
+                color: 1, 1, 1, 1
+                font_size: '16sp'
+
+            Button:
+                text: "Decline"
+                background_color: 0.9, 0.3, 0.3, 1
+                color: 1, 1, 1, 1
+                font_size: '16sp'
+
+        # ---------------- REASON BUTTON ----------------
+        Button:
+            text: "Reason for decline"
+            size_hint: None, None
+            size: dp(250), dp(50)
+            pos_hint: {"center_x": 0.5, "center_y": 0.4}
+            background_color: 0.2, 0.3, 0.6, 1
+            color: 1, 1, 1, 1
+            font_size: '16sp'
+
+        # ---------------- BOTTOM NAV BAR ----------------
+        BoxLayout:
+            orientation: 'horizontal'
+            size_hint_y: None
+            height: dp(70)
+            pos_hint: {"x": 0, "y": 0}
+            spacing: dp(10)
+            padding: dp(10)
+
+            canvas.before:
+                Color:
+                    rgba: 0.2, 0.3, 0.6, 1  # Dark blue background
+                Rectangle:
+                    pos: self.pos
+                    size: self.size
+
+            Button:
+                text: "🏠 Home"
+                background_normal: ""
+                background_color: 0, 0, 0, 0
+                color: 1, 1, 1, 1
+
+            Button:
+                text: "✈ Service Log"
+                background_normal: ""
+                background_color: 0, 0, 0, 0
+                color: 1, 1, 1, 1
+
+            Button:
+                text: "👤 Account"
+                background_normal: ""
+                background_color: 0, 0, 0, 0
+                color: 1, 1, 1, 1
