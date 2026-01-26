@@ -1,0 +1,97 @@
+#:kivy 2.3.0
+#:import MapView kivy_garden.mapview.MapView
+
+<MapHomeScreen>:
+    FloatLayout:
+        canvas.before:
+            Color:
+                rgba: 0.72, 0.85, 0.97, 1   # Light blue background
+            Rectangle:
+                size: self.size
+                pos: self.pos
+
+        # ---------------- MAP VIEW ----------------
+        MapView:
+            zoom: 15
+            lat: 19.9975
+            lon: 73.7898
+            size_hint: None, None
+            size: dp(300), dp(180)
+            pos_hint: {"center_x": 0.5, "center_y": 0.58}
+
+        # ---------------- TOP QUESTION ----------------
+        Label:
+            text: "Where you want to go?"
+            size_hint: None, None
+            size: dp(260), dp(50)
+            pos_hint: {"center_x": 0.5, "top": 0.95}
+            color: 0, 0, 0, 1
+            canvas.before:
+                Color:
+                    rgba: 0.45, 0.65, 0.85, 1
+                RoundedRectangle:
+                    pos: self.pos
+                    size: self.size
+                    radius: [25]
+
+        # ---------------- OPEN MAP BUTTON ----------------
+        Button:
+            text: "Open Full Map"
+            size_hint: None, None
+            size: dp(220), dp(50)
+            pos_hint: {"center_x": 0.5, "center_y": 0.38}
+            background_color: 0.45, 0.65, 0.85, 1
+            color: 0, 0, 0, 1
+            on_release: app.root.current = "google_map"
+
+            
+        # ---------------- VOICE BUTTON ----------------
+
+        Button:
+            text: "Voice Assistance 🎤"
+            size_hint: None, None
+            size: dp(300), dp(55)
+            pos_hint: {"center_x": 0.5, "center_y": 0.26}
+            background_color: 0.45, 0.65, 0.85, 1
+            color: 0, 0, 0, 1
+            on_release: root.start_voice_assistance()
+
+        # ---------------- BOTTOM NAV BAR ----------------
+
+        BoxLayout:
+            size_hint_y: None
+            height: dp(70)
+            pos_hint: {"x": 0, "y": 0}
+            spacing: dp(10)
+            padding: dp(10)
+
+            canvas.before:
+                Color:
+                    rgba: 0.60, 0.75, 0.90, 1
+                Rectangle:
+                    pos: self.pos
+                    size: self.size
+
+            Button:
+                text: "Home"
+                background_normal: ""
+                background_color: 0,0,0,0
+                color: 0,0,0,1
+
+            Button:
+                text: "AI Chatbot"
+                background_normal: ""
+                background_color: 0,0,0,0
+                color: 0,0,0,1
+
+            Button:
+                text: "Services"
+                background_normal: ""
+                background_color: 0,0,0,0
+                color: 0,0,0,1
+
+            Button:
+                text: "Account"
+                background_normal: ""
+                background_color: 0,0,0,0
+                color: 0,0,0,1
