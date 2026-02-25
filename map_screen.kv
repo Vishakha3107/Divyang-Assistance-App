@@ -1,0 +1,47 @@
+#:kivy 2.3.0
+#:import MapView kivy_garden.mapview.MapView
+
+<MapScreen>:
+
+    FloatLayout:
+
+        MapView:
+            id: mapview
+            zoom: 16
+            lat: 19.9975
+            lon: 73.7898
+
+
+        Button:
+            text: "<"
+            size_hint: None, None
+            size: dp(50), dp(45)
+            pos_hint: {"x": .02, "top": .96}
+            on_release: app.root.current = "list"
+
+
+        BoxLayout:
+            size_hint_y: None
+            height: dp(70)
+            pos_hint: {"x": 0, "y": 0}
+            spacing: dp(10)
+            padding: dp(10)
+
+            canvas.before:
+                Color:
+                    rgba: 0.6, 0.75, 0.9, 1
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+
+            Label:
+                text: "HOME"
+
+            Label:
+                text: "AI"
+
+            Label:
+                text: "SERVICE"
+
+            Label:
+                text: "ACCOUNT"

@@ -1,0 +1,27 @@
+#:kivy 2.3.0
+<UserSignupScreen>:
+    name: 'user_signup'
+
+    BoxLayout:
+        orientation: 'vertical'
+        padding: dp(20)
+        spacing: dp(15)
+
+        Label:
+            text: "User Sign Up"
+            font_size: '20sp'
+            size_hint_y: None
+            height: self.texture_size[1]
+
+        TextInput:
+            id: full_name
+            hint_text: "Full Name"
+            multiline: False
+            size_hint_y: None
+            height: dp(48)
+
+        Button:
+            text: "Get Started"
+            size_hint_y: None
+            height: dp(48)
+            on_release: root.submit_form()

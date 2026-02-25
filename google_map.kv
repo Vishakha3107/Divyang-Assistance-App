@@ -1,0 +1,32 @@
+#:kivy 2.3.0
+#:import MapView kivy_garden.mapview.MapView
+
+<MapScreen>:
+    name: "google_map"
+
+    FloatLayout:
+
+        MapView:
+            id: map
+            lat: 19.9975
+            lon: 73.7898
+            zoom: 15
+            size_hint: 1, 1
+
+        Button:
+            text: "< Back"
+            size_hint: None, None
+            size: dp(90), dp(40)
+            pos_hint: {"x": 0.03, "top": 0.95}
+            background_color: 0.2, 0.2, 0.2, 0.9
+            color: 1,1,1,1
+            on_release: app.root.current = "map_home"
+
+        Button:
+            text: "Confirm"
+            size_hint: None, None
+            size: dp(180), dp(45)
+            pos_hint: {"center_x": .5, "y": .03}
+            background_color: 0.6, 0.1, 0.2, 1
+            on_release: app.root.current = "services"
+

@@ -1,0 +1,50 @@
+#:kivy 2.3.0
+
+<RoleSelectScreen>:
+    name: 'role_select'
+
+    BoxLayout:
+        orientation: 'vertical'
+        padding: dp(20)
+        spacing: dp(16)
+
+        canvas.before:
+            Color:
+                rgba: 0.96, 0.96, 0.86, 1
+            Rectangle:
+                pos: self.pos
+                size: self.size
+
+
+        Label:
+            text: "WELCOME TO DIVYANG ASSISTANCE"
+            font_size: '22sp'
+            bold: True
+            color: 0, 0, 0, 1
+
+
+        Label:
+            text: "Sign-up As"
+            font_size: '18sp'
+            color: 0, 0, 0, 0.85
+
+
+        BoxLayout:
+            orientation: 'vertical'
+            spacing: dp(12)
+            size_hint_y: None
+            height: dp(120)
+
+
+            Button:
+                text: "User"
+                size_hint_y: None
+                height: dp(52)
+                on_release: app.root.current = "user_signup"
+
+
+            Button:
+                text: "Admin"
+                size_hint_y: None
+                height: dp(52)
+                on_release: root.show_admin_info()

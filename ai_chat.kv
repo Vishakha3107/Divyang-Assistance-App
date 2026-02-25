@@ -1,0 +1,66 @@
+#:kivy 2.3.0
+#:import dp kivy.metrics.dp
+
+<AIChatScreen>:
+
+    FloatLayout:
+
+        canvas.before:
+            Color:
+                rgba: 1, 0.82, 0.15, 1
+            Rectangle:
+                size: self.size
+                pos: self.pos
+
+        Button:
+            text: "<"
+            size_hint: None, None
+            size: dp(50), dp(45)
+            pos_hint: {"x": 0.03, "top": 0.95}
+            on_release: app.root.current = "map_home"
+
+        Label:
+            text: "AI ChatBot"
+            font_size: "22sp"
+            bold: True
+            color: 0, 0, 0, 1
+            pos_hint: {"center_x": .5, "top": .92}
+
+        ScrollView:
+            size_hint: 1, .6
+            pos_hint: {"x": 0, "y": .25}
+
+            Label:
+                id: chat_label
+                text: "AI Assistant Ready..."
+                size_hint_y: None
+                height: self.texture_size[1]
+                text_size: self.width - dp(20), None
+                padding: dp(10), dp(10)
+                color: 0, 0, 0, 1
+
+        BoxLayout:
+            size_hint: 1, None
+            height: dp(60)
+            pos_hint: {"x": 0, "y": .15}
+            padding: dp(5)
+            spacing: dp(5)
+
+            TextInput:
+                id: user_input
+                multiline: False
+                hint_text: "Type your message..."
+
+            Button:
+                text: "Send"
+                size_hint_x: None
+                width: dp(80)
+                on_release: root.send_message()
+
+        Button:
+            text: "🎤"
+            size_hint: None, None
+            size: dp(55), dp(55)
+            pos_hint: {"right": .95, "y": .05}
+            background_color: 0.4, 0.6, 0.9, 1
+            on_release: root.open_voice()

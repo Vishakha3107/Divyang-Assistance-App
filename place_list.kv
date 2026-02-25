@@ -1,0 +1,47 @@
+#:kivy 2.3.0
+
+<PlaceListScreen>:
+
+    FloatLayout:
+
+        canvas.before:
+            Color:
+                rgba: 0.72, 0.85, 0.97, 1
+            Rectangle:
+                size: self.size
+                pos: self.pos
+
+
+        Label:
+            text: "Where you want to go?"
+            size_hint: None, None
+            size: dp(260), dp(50)
+            pos_hint: {"center_x": .5, "top": .95}
+            canvas.before:
+                Color:
+                    rgba: 0.45, 0.65, 0.85, 1
+                RoundedRectangle:
+                    size: self.size
+                    pos: self.pos
+                    radius: [25]
+
+
+        BoxLayout:
+            orientation: "vertical"
+            spacing: dp(15)
+            padding: dp(30)
+            size_hint: None, None
+            size: dp(300), dp(260)
+            pos_hint: {"center_x": .5, "center_y": .5}
+
+            Button:
+                text: "City Center Mall"
+                on_release: root.open_map(19.9979, 73.7895)
+
+            Button:
+                text: "Civil Hospital"
+                on_release: root.open_map(19.9972, 73.7815)
+
+            Button:
+                text: "Sandip Foundation"
+                on_release: root.open_map(20.0365, 73.7591)

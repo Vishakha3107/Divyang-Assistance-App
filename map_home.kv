@@ -1,0 +1,84 @@
+#:kivy 2.3.0
+#:import MapView kivy_garden.mapview.MapView
+#:import dp kivy.metrics.dp
+#:import RoundedRectangle kivy.graphics.vertex_instructions.RoundedRectangle
+
+<MapHomeScreen>:
+
+    FloatLayout:
+
+        MapView:
+            id: mapview
+            lat: root.origin_lat
+            lon: root.origin_lon
+            zoom: 12
+            size_hint: 1, 1
+
+        BoxLayout:
+            size_hint: .92, None
+            height: dp(50)
+            pos_hint: {"center_x": .5, "top": .96}
+            spacing: dp(5)
+            padding: dp(5)
+
+            canvas.before:
+                Color:
+                    rgba: 1, 1, 1, 1
+                RoundedRectangle:
+                    pos: self.pos
+                    size: self.size
+                    radius: [25]
+
+            TextInput:
+                id: search_input
+                hint_text: "Search location..."
+                multiline: False
+                background_color: 0,0,0,0
+                foreground_color: 0,0,0,1
+                padding: dp(10), dp(12)
+                on_text_validate: root.search_location(self.text)
+
+            Button:
+                text: "🎤"
+                size_hint_x: None
+                width: dp(50)
+                background_normal: ""
+                background_color: 0.2, 0.6, 0.9, 1
+                on_release: app.speak("Voice assistance activated")
+        # -------- BOTTOM NAV --------
+        BoxLayout:
+            size_hint_y: None
+            height: dp(60)
+            pos_hint: {"y": 0}
+            spacing: dp(5)
+
+            canvas.before:
+                Color:
+                    rgba: 0.8, 0.9, 1, 1
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+
+            Button:
+                text: "Home"
+                background_normal: ""
+                background_color: 0,0,0,0
+                on_release: app.root.current = "map_home"
+
+            Button:
+                text: "AI"
+                background_normal: ""
+                background_color: 0,0,0,0
+                on_release: app.root.current = "ai_chat"
+
+            Button:
+                text: "Service"
+                background_normal: ""
+                background_color: 0,0,0,0
+                on_release: app.root.current = "services"
+
+            Button:
+                text: "Account"
+                background_normal: ""
+                background_color: 0,0,0,0
+                on_release: app.root.current = "profile"

@@ -1,0 +1,112 @@
+#:kivy 2.3.0
+
+<StepNavigationScreen>:
+
+    FloatLayout:
+
+        canvas.before:
+            Color:
+                rgba: 0.93, 0.65, 0.78, 1   # Pink background
+            Rectangle:
+                size: self.size
+                pos: self.pos
+
+        # -------- TITLE --------
+
+        Label:
+            text: "Step Navigation"
+            font_size: "22sp"
+            bold: True
+            pos_hint: {"center_x": .5, "top": .95}
+            color: 0,0,0,1
+
+
+        # -------- ROUTE CARD --------
+
+        BoxLayout:
+            orientation: "vertical"
+            size_hint: None, None
+            size: dp(300), dp(250)
+            pos_hint: {"center_x": .5, "center_y": .55}
+            padding: dp(15)
+            spacing: dp(10)
+
+            canvas.before:
+                Color:
+                    rgba: 0.85, 0.40, 0.60, 1
+                RoundedRectangle:
+                    size: self.size
+                    pos: self.pos
+                    radius: [20]
+
+            Label:
+                text: "Route"
+                color: 0,0,0,1
+
+            Label:
+                text: "Destination"
+                color: 0,0,0,1
+
+            Label:
+                text: "Distance / Time"
+                color: 0,0,0,1
+
+            Label:
+                text: "Accessibility"
+                color: 0,0,0,1
+
+
+        # -------- START BUTTON --------
+
+        Button:
+            text: "Start Navigation"
+            size_hint: None, None
+            size: dp(220), dp(50)
+            pos_hint: {"center_x": .5, "center_y": .25}
+            background_color: 0.85, 0.35, 0.55, 1
+            color: 0,0,0,1
+
+
+        # -------- BOTTOM NAV --------
+
+        BoxLayout:
+            size_hint_y: None
+            height: dp(65)
+            pos_hint: {"x": 0, "y": 0}
+            spacing: dp(10)
+            padding: dp(10)
+
+            canvas.before:
+                Color:
+                    rgba: 0.60, 0.75, 0.90, 1
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+
+            Button:
+                text: "Home"
+                background_normal: ""
+                background_color: 0,0,0,0
+                color: 0,0,0,1
+                on_release: app.root.current = "map_home"
+
+            Button:
+                text: "AI"
+                background_normal: ""
+                background_color: 0,0,0,0
+                color: 0,0,0,1
+                on_release: app.root.current = "ai_chat"
+
+            Button:
+                text: "Service"
+                background_normal: ""
+                background_color: 0,0,0,0
+                color: 0,0,0,1
+                on_release: app.root.current = "services"
+
+            Button:
+                text: "Account"
+                background_normal: ""
+                background_color: 0,0,0,0
+                color: 0,0,0,1
+                on_release: app.root.current = "account"
