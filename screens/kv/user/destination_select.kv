@@ -1,0 +1,56 @@
+#:kivy 2.3.0
+
+<DestinationSelectScreen>:
+    FloatLayout:
+        canvas.before:
+            Color:
+                rgba: 0.7, 0.85, 1, 1   # light blue background
+            Rectangle:
+                pos: self.pos
+                size: self.size
+
+        # Back arrow button
+        Button:
+            text: "<"
+            size_hint: None, None
+            size: dp(40), dp(40)
+            pos_hint: {"x": 0.02, "top": 0.95}
+            background_color: 0.1, 0.3, 0.6, 1
+            color: 1, 1, 1, 1
+            on_release: app.root.current = "map_home"
+
+        # Title
+        Label:
+            text: "Where you want to go?"
+            font_size: '22sp'
+            bold: True
+            color: 0, 0, 0, 1
+            pos_hint: {"center_x": 0.5, "top": 0.90}
+            size_hint: None, None
+            size: dp(250), dp(50)
+
+        # Destination buttons
+        GridLayout:
+            cols: 1
+            spacing: dp(15)
+            size_hint: None, None
+            size: dp(250), dp(200)
+            pos_hint: {"center_x": 0.5, "center_y": 0.5}
+
+            Button:
+                text: "City Center mall"
+                background_color: 0.1, 0.3, 0.6, 1
+                color: 1, 1, 1, 1
+                on_release: root.open_map("City Center mall")
+
+            Button:
+                text: "Civil Hospital"
+                background_color: 0.1, 0.3, 0.6, 1
+                color: 1, 1, 1, 1
+                on_release: root.open_map("Civil Hospital")
+
+            Button:
+                text: "Sandip Foundation"
+                background_color: 0.1, 0.3, 0.6, 1
+                color: 1, 1, 1, 1
+                on_release: root.open_map("Sandip Foundation")

@@ -1,0 +1,86 @@
+#:kivy 2.3.0
+
+<BusinessHome>:
+    BoxLayout:
+        orientation: "vertical"
+        canvas.before:
+            Color:
+                rgba: 1, 1, 1, 1
+            Rectangle:
+                pos: self.pos
+                size: self.size
+
+        # Main Content Area
+        BoxLayout:
+            orientation: "vertical"
+            padding: 10
+            spacing: 10
+           
+
+            Label:
+                text: "Business Dashboard"
+                font_size: 22
+                bold: True
+                size_hint_y: None
+                height: 40
+                color: 0, 0.4, 0.8, 1
+
+            ScrollView:
+                BoxLayout:
+                    id: pending_container
+                    orientation: "vertical"
+                    size_hint_y: None
+                    height: self.minimum_height
+                    spacing: 8
+
+            Label:
+                text: "Accepted Requests"
+                font_size: 18
+                size_hint_y: None
+                height: 35
+                color: 0, 0.4, 0.8, 1
+
+            ScrollView:
+                BoxLayout:
+                    id: accepted_container
+                    orientation: "vertical"
+                    size_hint_y: None
+                    height: self.minimum_height
+                    spacing: 8
+
+        # Bottom Navigation Bar
+        BoxLayout:
+            size_hint_y: None
+            height: 55
+            spacing: 5
+            padding: 5
+            canvas.before:
+                Color:
+                    rgba: 1, 1, 1, 1
+                Rectangle:
+                    pos: self.pos
+                    size: self.size
+
+            Button:
+                text: "Home"
+                background_normal: ""
+                background_color: 0.2, 0.5, 1, 1
+                color: 1, 1, 1, 1
+                on_release:
+                    app.root.current = "business_home"
+
+            Button:
+                text: "Profile"
+                background_normal: ""
+                background_color: 0.2, 0.5, 1, 1
+                color: 1, 1, 1, 1
+                on_release:
+                    app.root.current = "business_profile"
+
+            Button:
+                text: "Logout"
+                background_normal: ""
+                background_color: 0.9, 0.3, 0.3, 1
+                color: 1, 1, 1, 1
+                on_release:
+                    app.root.current = "business_identity"

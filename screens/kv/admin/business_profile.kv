@@ -1,0 +1,55 @@
+#:kivy 2.3.0
+<BusinessProfile>:
+    name: "business_profile"
+    BoxLayout:
+        orientation: "vertical"
+        padding: 20
+        spacing: 15
+
+        Label:
+            text: root.business_name
+            font_size: 24
+            bold: True
+            color: 0, 0, 1, 1
+            size_hint_y: None
+            height: 40
+
+        Label:
+            text: "Owner: " + root.owner_name
+            font_size: 16
+            color: 0, 0, 0, 1
+
+        Label:
+            text: "Phone: " + root.phone
+            font_size: 16
+
+        Label:
+            text: "Email: " + root.email
+            font_size: 16
+
+        Label:
+            text: "Address: " + root.address
+            font_size: 16
+
+        Label:
+            text: "About: " + root.description
+            font_size: 16
+            text_size: self.width, None
+            halign: "left"
+            valign: "top"
+
+        Widget:
+
+        Button:
+            text: "Edit Profile"
+            size_hint_y: None
+            height: 45
+            background_color: 0.3, 0.6, 1, 1
+            color: 1, 1, 1, 1
+
+        Button:
+            text: "Logout"
+            size_hint_y: None
+            height: 45
+            background_color: 0.9, 0.3, 0.3, 1
+            color: 1, 1, 1, 1

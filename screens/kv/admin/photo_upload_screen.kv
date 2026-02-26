@@ -1,0 +1,63 @@
+#:kivy 2.3.0
+
+<PhotoUploadScreen>:
+    BoxLayout:
+        orientation: "vertical"
+        padding: 20
+        spacing: 15
+
+        canvas.before:
+            Color:
+                rgba: 1, 1, 1, 1
+            Rectangle:
+                pos: self.pos
+                size: self.size
+
+        Label:
+            text: "Business Photo Upload"
+            font_size: 24
+            color: 0, 0.2, 0.6, 1
+            size_hint_y: None
+            height: 40
+
+        Label:
+            text: "Upload a clear image of your storefront"
+            color: 0, 0.4, 0.8, 1
+            size_hint_y: None
+            height: 30
+        
+        Label:
+            text: "and Service provided (Max 5MB)"
+            color: 0, 0.4, 0.8, 1
+            size_hint_y: None
+            height: 30
+
+        BoxLayout:
+            orientation: "vertical"
+            spacing: 10
+            size_hint_y: 0.7
+
+            Image:
+                id: photo_preview
+                source: ""
+                allow_stretch: True
+                keep_ratio: True
+
+            Button:
+                text: "Choose Photo"
+                size_hint_y: None
+                height: 45
+                background_normal: ""
+                background_color: 0, 0.2, 0.6, 1
+                color: 1, 1, 1, 1
+                on_release:
+                    root.open_file_chooser()
+
+        Button:
+            text: "Save & Continue"
+            size_hint_y: None
+            height: 50
+            background_normal: ""
+            background_color: 0, 0.2, 0.6, 1
+            color: 1, 1, 1, 1
+            on_release: app.root.current = "business_home"

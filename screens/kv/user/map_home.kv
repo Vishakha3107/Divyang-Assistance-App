@@ -1,0 +1,98 @@
+#:kivy 2.3.0
+#:import MapView kivy_garden.mapview.MapView
+#:import dp kivy.metrics.dp
+#:import RoundedRectangle kivy.graphics.vertex_instructions.RoundedRectangle
+
+<MapHomeScreen>:
+    name: "map_home"
+
+    FloatLayout:
+
+        MapView:
+            id: mapview
+            lat: root.origin_lat
+            lon: root.origin_lon
+            zoom: 12
+            size_hint: 1, 1
+
+        BoxLayout:
+            size_hint: .92, None
+            height: dp(50)
+            pos_hint: {"center_x": .5, "top": .96}
+            spacing: dp(5)
+            padding: dp(5)
+
+            canvas.before:
+                Color:
+                    rgba: 1, 1, 1, 1
+                RoundedRectangle:
+                    pos: self.pos
+                    size: self.size
+                    radius: [25]
+
+            TextInput:
+                id: search_input
+                hint_text: "Search location..."
+                multiline: False
+                background_color: 0, 0, 0, 0
+                foreground_color: 0, 0, 0, 1
+                padding: dp(10), dp(12)
+                on_text_validate: root.search_location(self.text)
+
+            Button:
+                text: "Search"
+                size_hint_x: None
+                width: dp(80)
+                background_normal: ""
+                background_color: 0.2, 0.6, 0.9, 1
+                color: 1, 1, 1, 1
+                on_release: root.search_location(search_input.text)
+            
+            Button:
+                text: "Voice"
+                size_hint_x: None
+                width: dp(50)
+                background_normal: ""
+                background_color: 0.2, 0.6, 0.9, 1
+                on_release: app.speak("Voice assistance activated")
+
+        BoxLayout:
+            size_hint_y: None
+            height: dp(70)
+            pos_hint: {"x": 0, "y": 0}
+            spacing: dp(10)
+            padding: dp(10)
+
+            canvas.before:
+                Color:
+                    rgba: 1, 1, 1, 1
+                Rectangle:
+                    pos: self.pos
+                    size: self.size
+
+            Button:
+                text: "Home"
+                background_normal: ""
+                background_color: 0, 0, 0, 0
+                color: 0, 0.4, 0.8, 1
+
+            Button:
+                text: "AI Chatbot"
+                background_normal: ""
+                background_color: 0, 0, 0, 0
+                color: 0, 0.4, 0.8, 1
+                on_release: app.root.current = "ai_chat"
+
+            Button:
+                text: "Services"
+                background_normal: ""
+                background_color: 0, 0, 0, 0
+                color: 0, 0.4, 0.8, 1
+                on_release: app.root.current = "service_screen"
+
+            Button:
+                text: "Account"
+                background_normal: ""
+                background_color: 0, 0, 0, 0
+                color: 0, 0.4, 0.8, 1
+                on_release: app.root.current = "profile"

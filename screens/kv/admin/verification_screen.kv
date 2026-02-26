@@ -1,0 +1,56 @@
+#:kivy 2.3.0
+
+<VerificationScreen>:
+    BoxLayout:
+        orientation: "vertical"
+        padding: 30
+        spacing: 20
+
+        canvas.before:
+            Color:
+                rgba: 1, 1, 1, 1
+            Rectangle:
+                pos: self.pos
+                size: self.size
+
+        Label:
+            text: "Verification"
+            font_size: 24
+            color: 0, 0.2, 0.6, 1
+            size_hint_y: None
+            height: 40
+
+        Spinner:
+            id: verification_spinner
+            text: "Select Verification Type"
+            values: ["Phone OTP", "Email OTP"]
+            size_hint_y: None
+            height: 45
+
+        Button:
+            text: "Send OTP"
+            size_hint_y: None
+            height: 45
+            background_normal: ""
+            background_color: 0, 0.2, 0.6, 1
+            color: 1, 1, 1, 1
+            on_release:
+                root.send_otp()
+
+        TextInput:
+            id: otp_input
+            hint_text: "Enter 6-digit OTP"
+            multiline: False
+            input_filter: "int"
+            size_hint_y: None
+            height: 45
+
+        Button:
+            text: "Verify"
+            size_hint_y: None
+            height: 50
+            background_normal: ""
+            background_color: 0, 0.2, 0.6, 1
+            color: 1, 1, 1, 1
+            on_release:
+                app.root.current = "business_hours_screen"

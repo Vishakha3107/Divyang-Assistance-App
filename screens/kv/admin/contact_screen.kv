@@ -1,0 +1,63 @@
+#:kivy 2.3.0
+
+<ContactScreen>:
+    BoxLayout:
+        orientation: "vertical"
+        padding: 20
+        spacing: 15
+
+        canvas.before:
+            Color:
+                rgba: 1, 1, 1, 1
+            Rectangle:
+                pos: self.pos
+                size: self.size
+
+        Label:
+            text: "Contact Details"
+            font_size: 24
+            color: 0, 0.2, 0.6, 1
+            size_hint_y: None
+            height: 40
+
+        BoxLayout:
+            size_hint_y: None
+            height: 45
+            spacing: 10
+
+            TextInput:
+                id: country_code_input
+                hint_text: "Country Code (e.g., +91)"
+                multiline: False
+                size_hint_x: 0.3
+
+            TextInput:
+                id: phone_input
+                hint_text: "Phone Number *"
+                multiline: False
+                input_filter: "int"
+                size_hint_x: 0.7
+
+        TextInput:
+            id: website_input
+            hint_text: "Website (Optional)"
+            multiline: False
+            size_hint_y: None
+            height: 45
+
+        TextInput:
+            id: email_input
+            hint_text: "Email (Optional)"
+            multiline: False
+            size_hint_y: None
+            height: 45
+
+        Button:
+            text: "Submit Contact"
+            size_hint_y: None
+            height: 50
+            background_normal: ""
+            background_color: 0, 0.2, 0.6, 1
+            color: 1, 1, 1, 1
+            on_release:
+                app.root.current = "verification_screen"

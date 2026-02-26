@@ -1,0 +1,28 @@
+#:kivy 2.3.0
+#:import MapView kivy_garden.mapview.MapView
+
+<ServiceMapScreen>:
+
+    FloatLayout:
+
+        MapView:
+            id: mapview
+            zoom: 16
+            lat: 19.9975
+            lon: 73.7898
+        Button:
+            text: "<"
+            size_hint: None, None
+            size: dp(50), dp(45)
+            pos_hint: {"x": .02, "top": .96}
+            on_release: app.root.current = "services"
+
+
+
+        Button:
+            text: "Confirm"
+            size_hint: None, None
+            size: dp(180), dp(50)
+            pos_hint: {"center_x": .5, "y": .05}
+            background_color: 0.8, 0.2, 0.4, 1
+            on_release: app.root.current = "google_map"

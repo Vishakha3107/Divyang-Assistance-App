@@ -1,0 +1,48 @@
+#:kivy 2.3.0
+<BusinessChoiceScreen>: 
+    name: "business_choice"
+    BoxLayout:
+        orientation: "vertical"
+        padding: 20
+        spacing: 15
+        canvas.before:
+            Color:
+                rgba: 1, 1, 1, 1
+            Rectangle:
+                pos: self.pos
+                size: self.size
+
+        Label:
+            text: "Welcome to Divyang Assistance"
+            font_size: 24
+            bold: True
+            color: 0, 0.4, 0.8, 1
+            size_hint_y: None
+            height: 40
+
+        Label:
+            text: "Are you a business owner?"
+            font_size: 18
+            color: 0, 0.4, 0.8, 1
+            size_hint_y: None
+            height: 30
+
+        BoxLayout:
+            orientation: "horizontal"
+            spacing: 20
+            size_hint_y: None
+            height: dp(50)
+
+            Button:
+                text: "Yes"
+                font_size: 18
+                background_color: 0.3, 0.6, 1, 1
+                color: 1, 1, 1, 1
+                on_release: app.root.current = "business_identity"
+
+            Button:
+                text: "No"
+                font_size: 18
+                background_color: 0.9, 0.3, 0.3, 1
+                color: 1, 1, 1, 1
+                on_release: app.root.current = "role_select"

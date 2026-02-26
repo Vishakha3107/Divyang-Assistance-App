@@ -1,0 +1,67 @@
+#:kivy 2.3.0
+
+<LocationScreen>:
+    BoxLayout:
+        orientation: "vertical"
+        padding: 20
+        spacing: 15
+
+        canvas.before:
+            Color:
+                rgba: 1, 1, 1, 1
+            Rectangle:
+                pos: self.pos
+                size: self.size
+
+        Label:
+            text: "Location Details"
+            font_size: 24
+            color: 0, 0.2, 0.6, 1
+            size_hint_y: None
+            height: 40
+
+        TextInput:
+            id: street_input
+            hint_text: "Street Address *"
+            multiline: False
+            size_hint_y: None
+            height: 45
+
+        TextInput:
+            id: city_input
+            hint_text: "City *"
+            multiline: False
+            size_hint_y: None
+            height: 45
+
+        TextInput:
+            id: state_input
+            hint_text: "State *"
+            multiline: False
+            size_hint_y: None
+            height: 45
+
+        TextInput:
+            id: pincode_input
+            hint_text: "Pincode (6 digits) *"
+            multiline: False
+            size_hint_y: None
+            height: 45
+
+        MapView:
+            id: mapview
+            lat: 19.9975
+            lon: 73.7898
+            zoom: 13
+            size_hint_y: 0.6
+        
+
+        Button:
+            text: "Submit Location"
+            size_hint_y: None
+            height: 50
+            background_normal: ""
+            background_color: 0, 0.2, 0.6, 1
+            color: 1, 1, 1, 1
+            on_release:
+                app.root.current = "contact_screen"

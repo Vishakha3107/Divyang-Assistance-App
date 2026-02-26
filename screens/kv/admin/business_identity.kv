@@ -1,0 +1,60 @@
+#:kivy 2.3.0
+
+<BusinessIdentityScreen>:
+    BoxLayout:
+        orientation: "vertical"
+        padding: 30
+        spacing: 20
+
+        
+        canvas.before:
+            Color:
+                rgba: 1, 1, 1,1   # White background
+            Rectangle:
+                pos: self.pos
+                size: self.size
+
+        Label:
+            text: "Enter your business details to create your profile"
+            font_size: 16
+            size_hint_y: None
+            height: 40
+            color: 0, 0.4, 0.8, 1
+
+        Label:
+            text: "Business Identity"
+            font_size: 24
+            size_hint_y: None
+            height: 40
+            color: 0, 0.4, 0.8, 1
+
+        TextInput:
+            id: business_name_input
+            hint_text: "Business Name *"
+            multiline: False
+            size_hint_y: None
+            height: 45
+
+        Spinner:
+            id: business_type_spinner
+            text: "Select Type"
+            values: ["Government", "Private", "NGO", "Hospital", "School", "Commercial", "start-up", "Other"]
+            size_hint_y: None
+            height: 45
+
+        Spinner:
+            id: category_spinner
+            text: "Select Category"
+            values: ["Restaurant", "Medical Store", "Public Office", "Transport Facility", "Mall", "Educational Institute", "Accessibility Service Center", "Other"]
+            size_hint_y: None
+            height: 45
+
+        Button:
+            text: "Next"
+            size_hint_y: None
+            height: 50
+            background_normal: ""
+            background_color:0, 0.2, 0.6, 1
+            color: 1, 1, 1, 1
+            on_release:
+                app.root.current = "location_screen"

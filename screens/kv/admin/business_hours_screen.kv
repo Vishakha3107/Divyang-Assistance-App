@@ -1,0 +1,194 @@
+#:kivy 2.3.0
+
+<BlueCheckBox@CheckBox>:
+    size_hint: None, None
+    size: 28, 28
+
+    canvas.before:
+        Color:
+            rgba: 0, 0.4, 0.8, 1
+        Line:
+            rectangle: self.x, self.y, self.width, self.height
+            width: 1.5
+
+    canvas.after:
+        Color:
+            rgba: 0, 0.4, 0.8, 1
+        Rectangle:
+            pos: self.pos
+            size: self.size if self.active else (0, 0)
+
+
+<BusinessHoursScreen>:
+    BoxLayout:
+        orientation: "vertical"
+        padding: 20
+        spacing: 10
+
+        canvas.before:
+            Color:
+                rgba: 1, 1, 1, 1
+            Rectangle:
+                pos: self.pos
+                size: self.size
+
+        Label:
+            text: "Business Hours"
+            font_size: 24
+            color: 0, 0.2, 0.6, 1
+            size_hint_y: None
+            height: 40
+
+        ScrollView:
+            GridLayout:
+                cols: 4
+                size_hint_y: None
+                height: self.minimum_height
+                row_default_height: 60
+                row_force_default: True
+                spacing: 10
+
+                # Header Row
+                Label:
+                    text: "Day"
+                    color: 0, 0.4, 0.8, 1
+                Label:
+                    text: "Open"
+                    color: 0, 0.4, 0.8, 1
+                Label:
+                    text: "Close"
+                    color: 0, 0.4, 0.8, 1
+                Label:
+                    text: "Closed"
+                    color: 0, 0.4, 0.8, 1
+
+                # Monday
+                Label:
+                    text: "Monday"
+                    color: 0, 0.4, 0.8, 1
+                TextInput:
+                    id: mon_open
+                    hint_text: "09:00"
+                    multiline: False
+                TextInput:
+                    id: mon_close
+                    hint_text: "18:00"
+                    multiline: False
+                BoxLayout:
+                    orientation: "vertical"
+                    padding: 5
+                    BlueCheckBox:
+                        id: mon_closed
+                        pos_hint: {"center_x": 0.5}
+
+                # Tuesday
+                Label:
+                    text: "Tuesday"
+                    color: 0, 0.4, 0.8, 1
+                TextInput:
+                    id: tue_open
+                    multiline: False
+                TextInput:
+                    id: tue_close
+                    multiline: False
+                BoxLayout:
+                    orientation: "vertical"
+                    padding: 5
+                    BlueCheckBox:
+                        id: tue_closed
+                        pos_hint: {"center_x": 0.5}
+
+                # Wednesday
+                Label:
+                    text: "Wednesday"
+                    color: 0, 0.4, 0.8, 1
+                TextInput:
+                    id: wed_open
+                    multiline: False
+                TextInput:
+                    id: wed_close
+                    multiline: False
+                BoxLayout:
+                    orientation: "vertical"
+                    padding: 5
+                    BlueCheckBox:
+                        id: wed_closed
+                        pos_hint: {"center_x": 0.5}
+
+                # Thursday
+                Label:
+                    text: "Thursday"
+                    color: 0, 0.4, 0.8, 1
+                TextInput:
+                    id: thu_open
+                    multiline: False
+                TextInput:
+                    id: thu_close
+                    multiline: False
+                BoxLayout:
+                    orientation: "vertical"
+                    padding: 5
+                    BlueCheckBox:
+                        id: thu_closed
+                        pos_hint: {"center_x": 0.5}
+
+                # Friday
+                Label:
+                    text: "Friday"
+                    color: 0, 0.4, 0.8, 1
+                TextInput:
+                    id: fri_open
+                    multiline: False
+                TextInput:
+                    id: fri_close
+                    multiline: False
+                BoxLayout:
+                    orientation: "vertical"
+                    padding: 5
+                    BlueCheckBox:
+                        id: fri_closed
+                        pos_hint: {"center_x": 0.5}
+
+                # Saturday
+                Label:
+                    text: "Saturday"
+                    color: 0, 0.4, 0.8, 1
+                TextInput:
+                    id: sat_open
+                    multiline: False
+                TextInput:
+                    id: sat_close
+                    multiline: False
+                BoxLayout:
+                    orientation: "vertical"
+                    padding: 5
+                    BlueCheckBox:
+                        id: sat_closed
+                        pos_hint: {"center_x": 0.5}
+
+                # Sunday
+                Label:
+                    text: "Sunday"
+                    color: 0, 0.4, 0.8, 1
+                TextInput:
+                    id: sun_open
+                    multiline: False
+                TextInput:
+                    id: sun_close
+                    multiline: False
+                BoxLayout:
+                    orientation: "vertical"
+                    padding: 5
+                    BlueCheckBox:
+                        id: sun_closed
+                        pos_hint: {"center_x": 0.5}
+
+        Button:
+            text: "Save Business Hours"
+            size_hint_y: None
+            height: 50
+            background_normal: ""
+            background_color: 0, 0.2, 0.6, 1
+            color: 1, 1, 1, 1
+            on_release:
+                app.root.current = "photo_upload_screen"

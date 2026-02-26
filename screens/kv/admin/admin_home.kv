@@ -1,0 +1,111 @@
+#:kivy 2.3.0
+
+<AdminHomeScreen@Screen>:
+    name: "admin_home"
+
+    FloatLayout:
+
+        # ---------- BACKGROUND ----------
+        canvas.before:
+            Color:
+                rgba: 0.93, 0.90, 0.96, 1
+            Rectangle:
+                pos: self.pos
+                size: self.size
+
+        # ---------- MAIN CONTENT ----------
+        BoxLayout:
+            orientation: 'vertical'
+            spacing: dp(20)
+            padding: dp(20)
+            size_hint: 1, None
+            height: self.minimum_height
+            pos_hint: {"top": 0.95}
+
+            # Title
+            Label:
+                text: "Admin"
+                font_size: '28sp'
+                bold: True
+                color: 0, 0, 0, 1
+                size_hint_y: None
+                height: dp(50)
+
+            # Service Requested
+            Button:
+                text: "Service Requested"
+                size_hint_y: None
+                height: dp(55)
+                background_color: 0.6, 0.4, 0.8, 1
+                color: 1, 1, 1, 1
+
+            # User Location
+            Button:
+                text: "User's Location"
+                size_hint_y: None
+                height: dp(55)
+                background_color: 0.6, 0.4, 0.8, 1
+                color: 1, 1, 1, 1
+
+            # Accept / Decline row
+            BoxLayout:
+                orientation: 'horizontal'
+                spacing: dp(20)
+                size_hint_y: None
+                height: dp(55)
+
+                Button:
+                    text: "Accept"
+                    background_color: 0.3, 0.75, 0.4, 1
+                    color: 1, 1, 1, 1
+
+                Button:
+                    text: "Decline"
+                    background_color: 0.9, 0.3, 0.3, 1
+                    color: 1, 1, 1, 1
+
+            # Reason button
+            Button:
+                text: "Reason for decline"
+                size_hint_y: None
+                height: dp(55)
+                background_color: 0.35, 0.35, 0.7, 1
+                color: 1, 1, 1, 1
+
+        # ---------- BOTTOM NAV ----------
+        BoxLayout:
+            orientation: 'horizontal'
+            size_hint_y: None
+            height: dp(70)
+            padding: dp(10)
+            spacing: dp(10)
+            pos_hint: {"x": 0, "y": 0}
+
+            canvas.before:
+                Color:
+                    rgba: 0.65, 0.4, 0.8, 1
+                Rectangle:
+                    pos: self.pos
+                    size: self.size
+
+            Button:
+                text: "🏠\nHome"
+                halign: 'center'
+                background_normal: ""
+                background_color: 0, 0, 0, 0
+                color: 0, 0, 0, 1
+
+            Button:
+                text: "🔁\nService Log"
+                halign: 'center'
+                background_normal: ""
+                background_color: 0, 0, 0, 0
+                color: 0, 0, 0, 1
+
+            Button:
+                text: "👤\nAccount"
+                halign: 'center'
+                background_normal: ""
+                background_color: 0, 0, 0, 0
+                color: 0, 0, 0, 1
+                on_release: app.root.current = "admin_profile"
